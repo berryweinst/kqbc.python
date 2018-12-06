@@ -2,7 +2,7 @@ from kqbc import KQBC
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.svm import SVC
-
+from linear_data import get_linear_2d_data
 
 
 d = 5
@@ -11,8 +11,10 @@ cov = np.eye(d)
 k = 40
 
 
-X = np.random.multivariate_normal(mu, cov, size=10000)
-y = np.sign(X[:,0])
+# X = np.random.multivariate_normal(mu, cov, size=10000)
+# y = np.sign(X[:,0])
+
+X, y = get_linear_2d_data(5000)
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.20)
 
@@ -22,4 +24,4 @@ svclassifier.fit(X_train[:k,:], y_train[:k])
 y_pred = svclassifier.predict(X_test)
 
 
-kqbc = KQBC(X_train, y_train, T=150, kernel='Linear', queries=40)
+kqbc = KQBC(X_train, y_train, T=100, kernel='Linear', queries=k)
