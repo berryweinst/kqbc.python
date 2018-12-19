@@ -1,5 +1,5 @@
 # kqbc.python 
-This is python implementation (and by matlab engine call) for this paper: https://dl.acm.org/citation.cfm?id=2976304
+This is python implementation (and by matlab engine call) for this paper: https://dl.acm.org/citation.cfm?id=2976304 \
 NOTE: If git clone doesn't work due to authentication, please download as a ZIP
 
 ### Package content:
