@@ -16,10 +16,9 @@ matlabroot
 ```
 3) This would give you a result with the path to the root folder where the Matlab path is installed. Now based on the operating system being used, open the Command Prompt/ Terminal and move to the location of the python engine setup file like:
 ```
-matlabroot 
-```
 cd matlabroot/extern/engines/python
 ```
+
 4) If you list the files in this directory, you should see a file called ‘setup.py’. Now based on the python version installed, you would need to run the following command:
 ```
 python setup.py install
