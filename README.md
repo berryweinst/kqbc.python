@@ -41,7 +41,7 @@ The synthtetic data test executes the KQBC algorithm for learning a linear class
 
 Command line example:
 ```
-python 
+python test_synth.py --steps 20 --dim 5 --hnr_iter 21 --plot
 ```
 
 ### Dependencies:
