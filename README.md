@@ -45,8 +45,8 @@ python
 ```
 
 ### Dependencies:
-Python 3.x
-matlab
-numpy 
+Python 3.x \
+matlab \
+numpy \
 matplotlib
 
