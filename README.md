@@ -59,4 +59,4 @@ These plots describe the error rate vs the number of samples the classifier was 
 * KQBC + SVM - using the k selected samples in the KQBC hit and run walks for fitting SVM classifier
 
 
-
+![alt text](http://url/to/img.png)
