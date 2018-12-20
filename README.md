@@ -53,7 +53,7 @@ matplotlib
 
 
 ### Results:
-These plots describe the error rate vs the number of samples the classifier was trained on.
+These plots describe the error rate on the test set vs the number of samples the classifier was trained on.
 * SVM - random k entries
 * KQBC - using the classifier (point in the version space) after T steps (using dot product)
 * KQBC + SVM - using the k selected samples in the KQBC hit and run walks for fitting SVM classifier
