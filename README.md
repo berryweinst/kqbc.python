@@ -57,9 +57,5 @@ These plots describe the error rate on the test set vs the number of samples the
 * SVM - random k entries
 * KQBC - using the classifier (point in the version space) after T steps (using dot product)
 
-
-![alt text](https://github.com/berryweinst/kqbc.python/blob/master/d_5.png)
-<img src="https://github.com/berryweinst/kqbc.python/blob/master/d_5.png" width="150">
-
-![alt text](https://github.com/berryweinst/kqbc.python/blob/master/d_15.png)
-
+<img src="https://github.com/berryweinst/kqbc.python/blob/master/d_5.png" width="450">
+<img src="https://github.com/berryweinst/kqbc.python/blob/master/d_15.png" width="450">
