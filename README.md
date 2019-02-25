@@ -59,7 +59,7 @@ These plots describe the error rate on the test set vs the number of samples the
 
 
 ![alt text](https://github.com/berryweinst/kqbc.python/blob/master/d_5.png)
-<img src="https://github.com/favicon.ico" width="48">
+<img src="https://github.com/berryweinst/kqbc.python/blob/master/d_5.png" width="150">
 
 ![alt text](https://github.com/berryweinst/kqbc.python/blob/master/d_15.png)
 
