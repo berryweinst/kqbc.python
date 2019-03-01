@@ -63,7 +63,7 @@ def hit_n_run(x, A ,T):
 
 
 
-def KQBC(K, Y_train, T, kernel, eng, queries=100, **kwargs):
+def KQBC(K, Y_train, T):
     """
     Runs the kernelized version of the Query By Committee (QBC) algorithm.
 
@@ -103,9 +103,6 @@ def KQBC(K, Y_train, T, kernel, eng, queries=100, **kwargs):
     for ii in np.arange(1, samp_num):
         extension = selection + [ii]
         s, u = schur(K[extension][: , extension])
-        # u, s = eng.myschur(matlab.double(K[extension][: , extension].tolist()), nargout=2)
-        # u = np.array(u)
-        # s = np.array(s)
         s = np.diag(s)
         I = np.where(s > tol)[0]
         A = u[:, I] @ np.diag(s[I] ** -0.5)

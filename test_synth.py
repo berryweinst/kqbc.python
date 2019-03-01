@@ -7,7 +7,7 @@ from sklearn import datasets
 import matlab.engine
 import matplotlib.pyplot as plt
 import argparse
-from mnist.utils import prepare_mnist_data
+from mnist.utils import prepare_mnist_data, select_one_class_vs_all
 from sklearn.metrics.pairwise import rbf_kernel
 import math
 import random
@@ -36,7 +36,7 @@ def parse_args():
   parser.add_argument('--samples', dest='samples',
                       help='List of the samples to run the svm and the kqbc',
                       # default=[5, 8, 10, 13, 18, 20, 23, 28, 30, 33, 38,  40],
-                      default=[5, 10, 20, 30, 40,  50, 60, 70, 80, 90, 100, 110, 120],
+                      default=[5, 10, 20, 30, 40,  50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150],
                       nargs='+', type=int)
   parser.add_argument('--plot', dest='plot',
                       help='Whether to plot the error comparison',
@@ -77,6 +77,8 @@ if __name__ == '__main__':
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
     elif args.kernel == 'Gauss':
         X_train, y_train, X_test, y_test = prepare_mnist_data()
+        X_train, y_train = select_one_class_vs_all(X_train, y_train)
+        X_test, y_test = select_one_class_vs_all(X_test, y_test, samples=200)
         X_train = X_train / 255.0
         X_test = X_test / 255.0
 
@@ -109,7 +111,7 @@ if __name__ == '__main__':
         # kqbc_selection, coefs = eng.KQBC(matlab.double(X_train.tolist()),
         #                                     matlab.double(np.expand_dims(y_train, 1).tolist()), T,
         #                                     args.kernel, param1, param2, nargout=2)
-        kqbc_selection, coefs, _ = KQBC(K, y_train[:, np.newaxis], T, args.kernel, eng)
+        kqbc_selection, coefs, _ = KQBC(K, y_train[:, np.newaxis], T)
         # kqbc_selection = np.array(kqbc_selection, dtype=np.int32).squeeze()
         # kqbc_selection -= 1
 
@@ -127,7 +129,7 @@ if __name__ == '__main__':
             svclassifier.fit(X_train[svm_idx,:], y_train[svm_idx])
             y_pred = svclassifier.predict(X_test)
             svm_err = np.sum(y_pred * y_test <= 0)/len(y_test)*100
-            err_dict_svm[k, t] = svm_err
+            err_dict_svm[idx, t] = svm_err
 
             # coef = np.array(coefs, dtype=np.float32)[:, k-1]
             # K = rbf_kernel(X_train, X_train, gamma=param1)
@@ -155,7 +157,7 @@ if __name__ == '__main__':
 
             kqbc_err = np.sum(y_test * y_pred_kqbc.squeeze() <= 0)/len(y_test)*100
             print("KQBC error = %.2f \t SVM error = %.2f" % (kqbc_err, svm_err))
-            err_dict_kqbc[k ,t] = kqbc_err
+            err_dict_kqbc[idx ,t] = kqbc_err
 
 
 
@@ -165,4 +167,5 @@ if __name__ == '__main__':
                            'SVM': err_dict_svm.mean(axis=1),
                            'KQBC': err_dict_kqbc.mean(axis=1)})
         df.plot(x='x', logy=True, ylim=(0.1, 1e2), yerr=[err_dict_svm.std(axis=1), err_dict_kqbc.std(axis=1)],
-                                                         title='Generalization error: SVM vs. KQBC (data dim = %d)' % (args.dim))
+                title='Generalization error: SVM vs. KQBC (data dim = %d)' % (
+                    args.dim) if args.krenel == 'Linear' else 'Mnist generalization error: SVM vs. KQBC')
