@@ -59,5 +59,5 @@ These plots describe the error rate on the test set vs the number of samples the
 
 <img src="https://github.com/berryweinst/kqbc.python/plots/blob/master/d_5_log.png" width="550">
 <img src="https://github.com/berryweinst/kqbc.python/plots/blob/master/d_5_linear.png" width="550">
-<img src="https://github.com/berryweinst/kqbc.python/blob/plots/master/d_15_log.png" width="550">
+<img src="https://github.com/berryweinst/kqbc.python/blob/master/plots/d_15_log.png" width="550">
 <img src="https://github.com/berryweinst/kqbc.python/blob/plots/master/d_15_linear.png" width="550">
