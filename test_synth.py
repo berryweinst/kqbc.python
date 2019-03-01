@@ -36,7 +36,7 @@ def parse_args():
   parser.add_argument('--samples', dest='samples',
                       help='List of the samples to run the svm and the kqbc',
                       # default=[5, 8, 10, 13, 18, 20, 23, 28, 30, 33, 38,  40],
-                      default=[5, 10, 20, 30, 40,  50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150],
+                      default=[5, 10, 20, 30, 40,  50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200],
                       nargs='+', type=int)
   parser.add_argument('--plot', dest='plot',
                       help='Whether to plot the error comparison',
@@ -166,6 +166,7 @@ if __name__ == '__main__':
         df = pd.DataFrame({'x': args.samples,
                            'SVM': err_dict_svm.mean(axis=1),
                            'KQBC': err_dict_kqbc.mean(axis=1)})
-        df.plot(x='x', logy=True, ylim=(0.1, 1e2), yerr=[err_dict_svm.std(axis=1), err_dict_kqbc.std(axis=1)],
+        y_lim = (0.1, 1e2) if args.krenel == 'Linear' else (1, 80)
+        df.plot(x='x', logy=True, ylim=y_lim, yerr=[err_dict_svm.std(axis=1), err_dict_kqbc.std(axis=1)],
                 title='Generalization error: SVM vs. KQBC (data dim = %d)' % (
                     args.dim) if args.krenel == 'Linear' else 'Mnist generalization error: SVM vs. KQBC')
