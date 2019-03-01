@@ -1,33 +1,11 @@
 # kqbc.python 
-This is python implementation (and by matlab engine call) for this paper: https://dl.acm.org/citation.cfm?id=2976304 \
-NOTE: If git clone doesn't work due to authentication, please download as a ZIP
+This is python implementation for this paper: https://dl.acm.org/citation.cfm?id=2976304 \
 
 ### Package content:
 * test_synth.py - the test that runs the synthetic data experiment 
 * kqbc.py - the python functions converted from matlab code
-* KQBC.m - matlab original code from the paper
-
-
-### Matlab engine:
-In order to use the KQBC matlab functions do the following:
-1) Download Matlab - (for student free version: https://www.mathworks.com/academia/tah-support-program/eligibility.html?s_tid=ac_tahcheck_sv_button)
-2) launch Matlab and then in the command window, write:
-```
-matlabroot 
-```
-3) This would give you a result with the path to the root folder where the Matlab path is installed. Now based on the operating system being used, open the Command Prompt/ Terminal and move to the location of the python engine setup file like:
-```
-cd matlabroot/extern/engines/python
-```
-
-4) If you list the files in this directory, you should see a file called ‘setup.py’. Now based on the python version installed, you would need to run the following command:
-```
-python setup.py install
-```
-In case you have python3.x, replace python with python3. Assuming everything goes correctly, you should see an output like the following on the terminal window.
-The test_synth.py import the matlab engine and uses the KQBC matlab functions.
-
-NOTE: In case somthing goes wrong, you can refer to this site for more information: https://medium.com/@pratap_aish/how-do-i-run-my-matlab-functions-in-python-7d2b8b2fefd1
+* matlab/KQBC.m - matlab original code from the paper
+* matlab/hit_n_run.m - matlab original code from the paper
 
 
 ### Running the test:
@@ -52,12 +30,18 @@ numpy \
 matplotlib
 
 
-### Results:
+## Results:
 These plots describe the error rate on the test set vs the number of samples the classifier was trained on.
 * SVM - random k entries
 * KQBC - using the classifier (point in the version space) after T steps (using dot product)
 
+### Synthetic data (5 dimensions - linear and logarithmic scale):
 <img src="https://github.com/berryweinst/kqbc.python/blob/master/plots/d_5_log.png" width="550">
 <img src="https://github.com/berryweinst/kqbc.python/blob/master/plots/d_5_linear.png" width="550">
+
+### Synthetic data (15 dimensions - linear and logarithmic scale):
 <img src="https://github.com/berryweinst/kqbc.python/blob/master/plots/d_15_log.png" width="550">
 <img src="https://github.com/berryweinst/kqbc.python/blob/master/plots/d_15_linear.png" width="550">
+
+It is clear that we get exponential improvenet when the classifier is extracted from KQBC algorithm.
+
