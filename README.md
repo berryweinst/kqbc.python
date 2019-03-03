@@ -43,5 +43,11 @@ These plots describe the error rate on the test set vs the number of samples the
 <img src="https://github.com/berryweinst/kqbc.python/blob/master/plots/d_15_log.png" width="550">
 <img src="https://github.com/berryweinst/kqbc.python/blob/master/plots/d_15_linear.png" width="550">
 
+### Mnist data (only 2 catagories - 1 class vs all):
+#### Log scale
+<img src="https://github.com/berryweinst/kqbc.python/blob/master/plots/rbg_log.png" width="550">
+#### Linear scale
+<img src="https://github.com/berryweinst/kqbc.python/blob/master/plots/linear_linear.png" width="550">
+
 It is clear that we get exponential improvenet when the classifier is extracted from KQBC algorithm.
 
