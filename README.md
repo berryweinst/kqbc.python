@@ -40,11 +40,12 @@ These plots describe the error rate on the test set vs the number of samples the
 * SVM - random k entries
 * KQBC - using the classifier (point in the version space) after T steps (using dot product)
 
-### Synthetic data (5 dimensions - logarithmic and linear scale):
+### Synthetic data (5/15 dimensions):
+#### Log scale
 <img src="https://github.com/berryweinst/kqbc.python/blob/master/plots/d_5_log.png" width="550">
 <img src="https://github.com/berryweinst/kqbc.python/blob/master/plots/d_5_linear.png" width="550">
 
-### Synthetic data (15 dimensions - logarithmic and linear scale):
+#### Linear scale
 <img src="https://github.com/berryweinst/kqbc.python/blob/master/plots/d_15_log.png" width="550">
 <img src="https://github.com/berryweinst/kqbc.python/blob/master/plots/d_15_linear.png" width="550">
 
