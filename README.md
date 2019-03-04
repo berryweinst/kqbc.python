@@ -51,6 +51,7 @@ These plots describe the error rate on the test set vs the number of samples the
 ### Mnist data (only 2 catagories - 1 class vs all):
 #### Log scale
 <img src="https://github.com/berryweinst/kqbc.python/blob/master/plots/rbf_log.png" width="550">
+
 #### Linear scale
 <img src="https://github.com/berryweinst/kqbc.python/blob/master/plots/rbf_linear.png" width="550">
 
