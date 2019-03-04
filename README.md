@@ -8,10 +8,15 @@ This is python implementation for this paper: https://dl.acm.org/citation.cfm?id
 * matlab/hit_n_run.m - matlab original code from the paper
 
 
-### Running the test:
+### Data
+#### Synthetic data
 The synthtetic data test executes the KQBC algorithm for learning a linear classifier in a d-dimensional space. The target classifier is the vector w∗ = (1, 0, . . . , 0) thus the label of an instance x ∈ IRd is the sign of its first coordinate. The instances were normally distributed N (µ = 0, Σ = Id).
+#### Mnist data
+The MNIST database of handwritten digits, available from this page, has a training set of 60,000 examples, and a test set of 10,000 examples. It is a subset of a larger set available from NIST. The digits have been size-normalized and centered in a fixed-size image. 
+For out experiment I degenerated the dataset into 2 classes (1,-1), which are one of the figures and all the rest, and balanced between them by eliminating most of the other classes samples. The final data was a sub version of the original one, consinting of 1000 training examples for each class, so 2000 in total, and 200 for each test class in the same manner.
 
 
+### Running the test:
 #### Flags:
 * steps - defines the number of repetitions of the experiment for statistical significance. 
 * dim - the dimention of the samplse and classifiers
