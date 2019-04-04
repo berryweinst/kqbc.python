@@ -114,7 +114,7 @@ def KQBC(K, Y_train, T):
 
         # try:
         co2 = hit_n_run(co1, restri, T)
-        co1 = hit_n_run(co1, restri, T)
+        co1 = hit_n_run(co2, restri, T)
 
         pred1 = K[ii, extension] @ (A @ co1)
         pred2 = K[ii, extension] @ (A @ co2)
